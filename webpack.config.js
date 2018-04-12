@@ -2,10 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['babel-polyfill','./src/js/index.js'],
+    entry: ['babel-polyfill', './src/js/index.js'],
     output: {
-        path: path.join(__dirname,'dist/'),
-        filename: "js/bundle.js",
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/bundle.js'
     },
     devServer: {
         contentBase: './dist'
@@ -19,10 +19,10 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\*.js$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader"
+                    loader: 'babel-loader'
                 }
             }
         ]
